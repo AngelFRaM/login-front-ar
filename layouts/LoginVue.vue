@@ -18,6 +18,6 @@ export default {
 
 <style scoped>
 .background {
-  background-color: bisque;
+  background-color: #354551;
 }
 </style>

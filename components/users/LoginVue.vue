@@ -1,28 +1,16 @@
 <template>
-  <v-card
-    elevation="5"
-    width="500"
-    color="blue"
-    style="display: flex;"
-  >
+  <v-card elevation="5" width="500" color="blue" style="display: flex;">
     <v-col cols="4" style="align-self: center;">
       <v-img :src="require('~/assets/images/login.png')" />
     </v-col>
     <v-col>
       <v-card-title> Login Proyecto </v-card-title>
       <v-card-text>
-        <v-text-field
-          v-model="email"
-          type="mail"
-          :rules="emailRule"
-          placeholder="Escribe tu correo" />
+        <v-text-field v-model="email" type="mail" :rules="emailRule" placeholder="Escribe tu correo" />
         <v-text-field v-model="password" type="password" placeholder="Escribe tu contraseña" />
       </v-card-text>
       <v-card-actions>
-        <v-btn
-          color="green"
-          @click="login"
-        >
+        <v-btn color="green" @click="login">
           Login
         </v-btn>
         <v-btn>
@@ -55,6 +43,7 @@ export default {
       }).then((res) => {
         this.$router.push('/dashboard')
       }).catch((error) => {
+        // eslint-disable-next-line no-console
         console.log('error', error)
       })
     }

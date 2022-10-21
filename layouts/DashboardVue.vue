@@ -1,5 +1,5 @@
 <template>
-  <v-app id="inspire">
+  <v-app id="inspire" class="background">
     <Drawer />
     <v-main>
       <nuxt />
@@ -15,3 +15,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.background {
+  background-color: #354551;
+}
+</style>
