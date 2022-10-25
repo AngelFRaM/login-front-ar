@@ -15,12 +15,14 @@
         <!-- Tabla de Usuarios -->
         <v-data-table id="tablaCucha" :headers="encabezado" :items="usuarios">
           <template #[`item.acciones`]="{item}">
-            <v-btn color="orange" @click="editar(item)">
-              Editar
-            </v-btn>
-            <v-btn color="red" @click="temporal(item._id)">
-              Borrar
-            </v-btn>
+            <v-row v-if="item.name !== 'Administrador'">
+              <v-btn color="orange" @click="editar(item)">
+                Editar
+              </v-btn>
+              <v-btn color="red" @click="temporal(item._id, item.name)">
+                Borrar
+              </v-btn>
+            </v-row>
           </template>
         </v-data-table>
         <!-- Fin Tabla de Usuarios -->
@@ -153,12 +155,16 @@ export default {
     },
     editar (item) {
       // console.log(item)
-      this.usuario = item
-      this.dialogUpdate = true
+      if (item.name !== 'Administrador') {
+        this.usuario = item
+        this.dialogUpdate = true
+      }
     },
-    temporal (id) {
-      this.idUsuario = id
-      this.dialog = true
+    temporal (id, name) {
+      if (name !== 'Administrador') {
+        this.idUsuario = id
+        this.dialog = true
+      }
     }
   }
 }
